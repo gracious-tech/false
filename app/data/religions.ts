@@ -183,15 +183,26 @@ export const religions:Religion[] = [
                 ],
             },
             {
-                belief: "The Mass is a sacrifice for sins, and the bread is to be worshipped",
-                detail: "The Catechism calls the cross and the Mass \"one single sacrifice\","
-                    + " offered for the sins of the living and the dead. It teaches the bread"
-                    + " becomes Christ's body (transubstantiation) and is to be adored.",
-                response: "Christ offered himself once for all, and his sacrifice is finished and"
-                    + " never repeated. Worship belongs to God alone, not to bread.",
-                refs: ['Hebrews 7:27', 'Hebrews 10:10-18', 'John 19:30', 'Exodus 20:4-5'],
+                belief: "The Mass is a sacrifice that takes away sins",
+                detail: "The Catechism calls the cross and the Mass \"one single sacrifice\"."
+                    + " The same Christ is offered again at every Mass through the priest, for"
+                    + " the sins of the living and the dead.",
+                response: "Christ offered himself once for all, and his sacrifice is finished."
+                    + " It is never repeated, and no further offering for sin is needed.",
+                refs: ['Hebrews 7:27', 'Hebrews 9:25-28', 'Hebrews 10:10-18', 'John 19:30'],
+                sources: [ccc("Catechism 1366–1367", '__P41')],
+            },
+            {
+                belief: "The communion bread is to be worshipped as Jesus",
+                detail: "Rome teaches the bread and wine become Christ's actual body and blood"
+                    + " (transubstantiation), so the bread is given \"the cult of adoration\","
+                    + " both during Mass and when displayed outside of it.",
+                response: "Jesus gave the bread and cup as a remembrance of his death. Worship"
+                    + " belongs to God alone, and the bread remains bread.",
+                refs: ['Luke 22:19-20', '1 Corinthians 11:24-26', 'Exodus 20:4-5',
+                    'Matthew 4:10'],
                 sources: [
-                    ccc("Catechism 1366–1367, 1376–1378", '__P41'),
+                    ccc("Catechism 1376–1378", '__P41'),
                     ccc("Catechism 1418", '__P44'),
                 ],
             },
@@ -206,19 +217,16 @@ export const religions:Religion[] = [
                 sources: [ccc("Catechism 1471–1479", '__P4G')],
             },
             {
-                belief: "Mary was sinless, was taken into heaven, and is a mediator",
+                belief: "Mary was sinless and was taken bodily into heaven",
                 detail: "Catholics must believe Mary was conceived without sin and was \"taken"
-                    + " up body and soul into heavenly glory\", as declared by popes in 1854 and"
-                    + " 1950. The Catechism calls her \"Mediatrix\" and teaches praying to"
-                    + " saints.",
-                response: "All have sinned, and Mary herself called God her Saviour. There is"
-                    + " one mediator between God and people, Jesus Christ, and we pray to God"
-                    + " through him alone.",
-                refs: ['Luke 1:46-47', 'Romans 3:23', '1 Timothy 2:5', 'Hebrews 4:14-16'],
+                    + " up body and soul into heavenly glory\". These were declared by popes in"
+                    + " 1854 and 1950, not taught from the Bible.",
+                response: "All have sinned except Christ, and Mary herself called God her"
+                    + " Saviour. We are only bound to believe what Scripture teaches.",
+                refs: ['Luke 1:46-47', 'Romans 3:23', 'Hebrews 4:15', '1 Corinthians 4:6'],
                 sources: [
                     ccc("Catechism 491", '__P1K'),
-                    ccc("Catechism 956", '__P2B'),
-                    ccc("Catechism 966, 969", '__P2C'),
+                    ccc("Catechism 966", '__P2C'),
                     {
                         label: "Ineffabilis Deus (1854)",
                         url: 'https://www.papalencyclicals.net/pius09/p9ineff.htm',
@@ -228,6 +236,20 @@ export const religions:Religion[] = [
                         url: 'https://www.vatican.va/content/pius-xii/en/apost_constitutions/'
                             + 'documents/hf_p-xii_apc_19501101_munificentissimus-deus.html',
                     },
+                ],
+            },
+            {
+                belief: "Mary is a mediator, and we should pray to the saints",
+                detail: "The Catechism calls Mary \"Advocate, Helper, Benefactress, and"
+                    + " Mediatrix\", and teaches that we should ask the saints in heaven to"
+                    + " pray for us.",
+                response: "There is one mediator between God and people, Jesus Christ. We can"
+                    + " come boldly to God through him, and prayer belongs to God alone.",
+                refs: ['1 Timothy 2:5', 'Hebrews 4:14-16', 'John 14:13-14', 'Matthew 6:9'],
+                sources: [
+                    ccc("Catechism 956", '__P2B'),
+                    ccc("Catechism 969", '__P2C'),
+                    ccc("Catechism 2677", '__P9F'),
                 ],
             },
             {
