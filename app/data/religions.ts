@@ -31,6 +31,76 @@ function placeholder_beliefs():FalseBelief[]{
 // All religions, in the order they are listed on the home page
 export const religions:Religion[] = [
     {
+        slug: 'buddhism',
+        name: "Buddhism",
+        summary: "A religion founded in India around 500 BC by Siddhartha Gautama, known as the"
+            + " Buddha. It teaches that suffering is ended by following a path of right living"
+            + " and meditation that leads to enlightenment and release from rebirth.",
+        beliefs: [
+            {
+                belief: "There is no Creator God",
+                response: "God created everything that exists, and his power and nature are"
+                    + " clearly seen in what he has made.",
+                refs: ['Genesis 1:1', 'Psalm 19:1', 'Romans 1:20', 'Revelation 4:11'],
+            },
+            {
+                belief: "There is no lasting self or soul",
+                response: "Each person is made in God's image with a soul that continues after"
+                    + " death and is known and loved by God individually.",
+                refs: ['Genesis 1:27', 'Psalm 139:13-16', 'Matthew 10:28', 'Luke 12:7'],
+            },
+            {
+                belief: "We are reborn again and again",
+                response: "Each person lives once, then faces judgement. There is no cycle of"
+                    + " rebirth.",
+                refs: ['Hebrews 9:27', 'Luke 16:22-23', 'Luke 23:43', '2 Corinthians 5:8'],
+            },
+            {
+                belief: "Karma decides what we deserve",
+                response: "Everyone has sinned and deserves judgement, but God offers mercy and"
+                    + " forgiveness freely through Christ instead of what we deserve.",
+                refs: ['Romans 3:23-24', 'Psalm 103:10-12', 'Romans 6:23', 'Ephesians 1:7'],
+            },
+            {
+                belief: "Suffering is caused by desire",
+                response: "Suffering entered the world through sin. Not all desire is wrong;"
+                    + " God gives good desires and will one day end suffering completely.",
+                refs: ['Genesis 3:17-19', 'Romans 5:12', 'Psalm 37:4', 'Revelation 21:4'],
+            },
+            {
+                belief: "We must save ourselves by our own effort",
+                response: "No one can save themselves by good works or discipline. Salvation is"
+                    + " a gift of God's grace received by faith in Christ.",
+                refs: ['Ephesians 2:8-9', 'Titus 3:5', 'Galatians 2:16', 'Isaiah 64:6'],
+            },
+            {
+                belief: "The goal is nirvana, the end of the self",
+                response: "The goal is not to cease to exist but to have eternal life, knowing"
+                    + " God and living with him forever in a renewed creation.",
+                refs: ['John 17:3', 'Revelation 21:3-4', '1 Corinthians 15:42-44',
+                    'John 10:10'],
+            },
+            {
+                belief: "Jesus was one enlightened teacher among many",
+                response: "Jesus is God in the flesh and the only way to God. Salvation is found"
+                    + " in no one else.",
+                refs: ['John 14:6', 'Acts 4:12', 'Colossians 2:9', 'John 1:14'],
+            },
+            {
+                belief: "The real problem is ignorance, not sin",
+                response: "Our real problem is sin against a holy God, which needs forgiveness,"
+                    + " not merely enlightenment.",
+                refs: ['Psalm 51:4', 'Romans 3:10-12', 'Isaiah 59:2', '1 John 1:8-9'],
+            },
+            {
+                belief: "Truth is found within through meditation",
+                response: "The human heart is deceitful. Truth is revealed by God in his Word,"
+                    + " and we are to meditate on Scripture rather than look within.",
+                refs: ['Jeremiah 17:9', 'Proverbs 3:5-6', '2 Timothy 3:16-17', 'Psalm 1:1-2'],
+            },
+        ],
+    },
+    {
         slug: 'catholic',
         name: "Roman Catholicism",
         summary: "",
