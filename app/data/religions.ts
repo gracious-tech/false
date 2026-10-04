@@ -1,11 +1,20 @@
 // Data for each religion/sect page
 
 
+// A link to an official source that the religion itself treats as authoritative
+export interface Source {
+    label:string
+    url:string
+}
+
+
 // A single false belief and the biblical response to it
 export interface FalseBelief {
     belief:string
+    detail?:string  // What the religion teaches, in plain words or its own
     response:string
     refs:string[]
+    sources?:Source[]
 }
 
 
@@ -25,6 +34,18 @@ function placeholder_beliefs():FalseBelief[]{
         response: "What Scripture teaches instead.",
         refs: [],
     }))
+}
+
+
+// Link to a page of the Catechism of the Catholic Church on the Vatican's website
+function ccc(label:string, page:string):Source{
+    return {label, url: `https://www.vatican.va/archive/ENG0015/${page}.HTM`}
+}
+
+
+// Link to a session of the Council of Trent
+function trent(label:string, session:string):Source{
+    return {label, url: `https://www.papalencyclicals.net/councils/trent/${session}-session.htm`}
 }
 
 
@@ -103,8 +124,148 @@ export const religions:Religion[] = [
     {
         slug: 'catholic',
         name: "Roman Catholicism",
-        summary: "",
-        beliefs: placeholder_beliefs(),
+        summary: "Most Catholics believe in the Trinity, that Jesus is God, and that he died and"
+            + " rose again. The difference is how a person is forgiven and made right with God."
+            + " Each point below comes from official teaching still in force today, mostly the"
+            + " Catechism and the Council of Trent, and links to the original so you can read"
+            + " it yourself.",
+        beliefs: [
+            {
+                belief: "We are not saved by faith alone",
+                detail: "The Council of Trent declared anyone who teaches that we are made right"
+                    + " with God by faith alone to be \"anathema\" (condemned). Rome teaches that"
+                    + " God pours grace into us so we actually become good, and we must"
+                    + " cooperate with it.",
+                response: "We are made right with God by trusting Christ alone. His perfect"
+                    + " righteousness is credited to us as a free gift, not earned by us.",
+                refs: ['Romans 3:28', 'Romans 4:5', 'Galatians 2:16', 'Philippians 3:9'],
+                sources: [trent("Council of Trent, Session VI, Canons 9 & 11", 'sixth')],
+            },
+            {
+                belief: "Good works can merit eternal life",
+                detail: "The Catechism teaches that after the first grace, \"we can merit for"
+                    + " ourselves and for others all the graces needed to attain eternal life\"."
+                    + " This grace can be lost through mortal sin and restored through"
+                    + " confession.",
+                response: "Eternal life is a gift we receive, never wages we earn. Those who"
+                    + " belong to Christ are kept by him and cannot be snatched away.",
+                refs: ['Romans 6:23', 'Ephesians 2:8-9', 'Romans 11:6', 'John 10:28-29'],
+                sources: [
+                    ccc("Catechism 2006–2011", '__P70'),
+                    ccc("Catechism 2027", '__P72'),
+                ],
+            },
+            {
+                belief: "Church Tradition is equal to the Bible",
+                detail: "The Catechism says the Church \"does not derive her certainty about all"
+                    + " revealed truths from the holy Scriptures alone\", and that only the"
+                    + " Church's teaching office can interpret them.",
+                response: "Scripture is God's own word and the final authority that judges all"
+                    + " church teaching and tradition, not the other way around.",
+                refs: ['2 Timothy 3:16-17', 'Mark 7:8-13', 'Acts 17:11', 'Isaiah 8:20'],
+                sources: [
+                    ccc("Catechism 80–82", '__PL'),
+                    ccc("Catechism 85–87", '__PM'),
+                ],
+            },
+            {
+                belief: "The Pope can teach without error",
+                detail: "When the Pope formally defines a teaching on faith or morals, the"
+                    + " Catechism says he \"enjoys this infallibility in virtue of his office\","
+                    + " and the faithful must accept it.",
+                response: "Christ alone is head of the church. Even the apostle Peter was"
+                    + " publicly corrected when he went against the gospel.",
+                refs: ['Ephesians 1:22-23', 'Colossians 1:18', 'Galatians 2:11-14',
+                    'Matthew 15:9'],
+                sources: [
+                    ccc("Catechism 891", '__P2A'),
+                    ccc("Catechism 2035", '__P74'),
+                ],
+            },
+            {
+                belief: "The Mass is a sacrifice for sins, and the bread is to be worshipped",
+                detail: "The Catechism calls the cross and the Mass \"one single sacrifice\","
+                    + " offered for the sins of the living and the dead. It teaches the bread"
+                    + " becomes Christ's body (transubstantiation) and is to be adored.",
+                response: "Christ offered himself once for all, and his sacrifice is finished and"
+                    + " never repeated. Worship belongs to God alone, not to bread.",
+                refs: ['Hebrews 7:27', 'Hebrews 10:10-18', 'John 19:30', 'Exodus 20:4-5'],
+                sources: [
+                    ccc("Catechism 1366–1367, 1376–1378", '__P41'),
+                    ccc("Catechism 1418", '__P44'),
+                ],
+            },
+            {
+                belief: "Punishment for sin remains and can be reduced by indulgences",
+                detail: "Even after forgiveness, Rome teaches \"temporal punishment\" remains,"
+                    + " paid in this life or in purgatory. Indulgences reduce it by drawing on"
+                    + " a \"treasury\" of the merits of Christ, Mary and the saints.",
+                response: "Christ's death fully paid for the sins of those who trust him. There"
+                    + " is no condemnation left and no debt for us or the saints to pay.",
+                refs: ['Romans 8:1', 'Hebrews 10:14', '1 John 1:7', 'Colossians 2:13-14'],
+                sources: [ccc("Catechism 1471–1479", '__P4G')],
+            },
+            {
+                belief: "Mary was sinless, was taken into heaven, and is a mediator",
+                detail: "Catholics must believe Mary was conceived without sin and was \"taken"
+                    + " up body and soul into heavenly glory\", as declared by popes in 1854 and"
+                    + " 1950. The Catechism calls her \"Mediatrix\" and teaches praying to"
+                    + " saints.",
+                response: "All have sinned, and Mary herself called God her Saviour. There is"
+                    + " one mediator between God and people, Jesus Christ, and we pray to God"
+                    + " through him alone.",
+                refs: ['Luke 1:46-47', 'Romans 3:23', '1 Timothy 2:5', 'Hebrews 4:14-16'],
+                sources: [
+                    ccc("Catechism 491", '__P1K'),
+                    ccc("Catechism 956", '__P2B'),
+                    ccc("Catechism 966, 969", '__P2C'),
+                    {
+                        label: "Ineffabilis Deus (1854)",
+                        url: 'https://www.papalencyclicals.net/pius09/p9ineff.htm',
+                    },
+                    {
+                        label: "Munificentissimus Deus (1950)",
+                        url: 'https://www.vatican.va/content/pius-xii/en/apost_constitutions/'
+                            + 'documents/hf_p-xii_apc_19501101_munificentissimus-deus.html',
+                    },
+                ],
+            },
+            {
+                belief: "Statues, images and relics should be venerated",
+                detail: "The Catechism teaches that images of Christ, Mary and the saints are"
+                    + " owed \"respectful veneration\", and that relics of saints are honoured."
+                    + " Catholics bow before, kneel at and kiss them.",
+                response: "God commands us not to bow down to images. Calling it honour rather"
+                    + " than worship does not change what the command forbids.",
+                refs: ['Exodus 20:4-5', 'Isaiah 42:8', 'Acts 10:25-26', '1 John 5:21'],
+                sources: [
+                    ccc("Catechism 2129–2132", '__P7F'),
+                    ccc("Catechism 1674", '__P58'),
+                ],
+            },
+            {
+                belief: "The true Church is the one under the Pope",
+                detail: "The Catechism teaches that the Church of Christ \"subsists in\" the"
+                    + " Catholic Church, \"governed by the successor of Peter\", and that the"
+                    + " fullness of the means of salvation is found only there.",
+                response: "The true church is all who trust in Christ, wherever the gospel is"
+                    + " rightly preached. Christ, not Peter, is the foundation.",
+                refs: ['1 Corinthians 3:11', 'Ephesians 2:19-22', 'Galatians 3:26-29',
+                    '1 Peter 2:4-6'],
+                sources: [ccc("Catechism 816, 846", '__P29')],
+            },
+            {
+                belief: "The Apocrypha is Scripture",
+                detail: "In 1546 the Council of Trent added Tobit, Judith, Wisdom, Sirach, Baruch,"
+                    + " 1–2 Maccabees and extra parts of Daniel and Esther to the Old Testament,"
+                    + " and declared anyone who rejects them \"anathema\".",
+                response: "The Old Testament is the one God entrusted to the Jews, which Jesus"
+                    + " and the apostles quoted. These extra books can be useful history but"
+                    + " are not God's word.",
+                refs: ['Romans 3:1-2', 'Luke 24:44', 'Matthew 23:35'],
+                sources: [trent("Council of Trent, Session IV", 'fourth')],
+            },
+        ],
     },
     {
         slug: 'islam',

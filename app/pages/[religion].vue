@@ -6,8 +6,14 @@ p(v-if='religion.summary') {{ religion.summary }}
 ol
     li.belief(v-for='item in religion.beliefs' :key='item.belief')
         h2 {{ item.belief }}
+        p.detail(v-if='item.detail') {{ item.detail }}
         p {{ item.response }}
         p.refs(v-if='item.refs.length') {{ item.refs.join('; ') }}
+        p.sources(v-if='item.sources?.length')
+            | {{ item.sources.length > 1 ? "Official sources:" : "Official source:" }}
+            template(v-for='(source, i) in item.sources' :key='source.url')
+                | {{ i ? ', ' : ' ' }}
+                a(:href='source.url' target='_blank' rel='noopener') {{ source.label }}
 
 </template>
 
@@ -38,8 +44,14 @@ h2
     font-size: 1.2em
     margin-bottom: 4px
 
+.detail
+    opacity: 0.85
+
 .refs
     font-style: italic
     opacity: 0.8
+
+.sources
+    font-size: 0.9em
 
 </style>
