@@ -4,16 +4,31 @@
 h1 {{ religion.name }}
 p(v-if='religion.summary') {{ religion.summary }}
 ol
-    li.belief(v-for='item in religion.beliefs' :key='item.belief' :class='{primary: item.primary}')
-        h2 {{ item.belief }}
-        p.detail(v-if='item.detail') {{ item.detail }}
-        p {{ item.response }}
-        p.refs(v-if='item.refs.length') {{ item.refs.join('; ') }}
-        p.sources(v-if='item.sources?.length')
-            | {{ item.sources.length > 1 ? "Official sources:" : "Official source:" }}
-            template(v-for='(source, i) in item.sources' :key='source.url')
-                | {{ i ? ', ' : ' ' }}
-                a(:href='source.url' target='_blank' rel='noopener') {{ source.label }}
+    li.belief(v-for='point in points' :key='point.title' :class='{primary: point.primary}')
+        h2 {{ point.title }}
+        p.explanation
+            template(v-for='(part, i) in point.parts' :key='i')
+                sup(v-if='part.footnotes.length')
+                    template(v-for='(num, j) in part.footnotes' :key='num')
+                        | {{ j ? ',' : '' }}
+                        a(:href='`#fn-${num}`') {{ num }}
+                template(v-else) {{ part.text }}
+        blockquote.quote
+            | {{ point.quote.text }}
+            sup(v-if='point.quote_footnote')
+                a(:href='`#fn-${point.quote_footnote}`') {{ point.quote_footnote }}
+        p.response
+            strong But Scripture says:
+            |  {{ point.response }}
+        blockquote.verse
+            | {{ point.verse.text }}
+            cite {{ point.verse.ref }} (BSB)
+
+section.footnotes(v-if='footnotes.length')
+    h2 Sources
+    ol
+        li(v-for='(source, i) in footnotes' :key='i' :id='`fn-${i + 1}`')
+            a(:href='source.url' target='_blank' rel='noopener') {{ source.label }}
 
 </template>
 
@@ -21,6 +36,7 @@ ol
 <script lang="ts" setup>
 
 import {get_religion} from '~/data/religions'
+import type {Source} from '~/data/religions'
 
 // Resolve the religion from the route, or show a 404 if unknown
 const route = useRoute()
@@ -32,13 +48,34 @@ const religion = found
 
 useHead({title: religion.name})
 
+// Number every point's sources consecutively so they can be listed at the end of the page
+const footnotes:Source[] = []
+const points = religion.beliefs.map(belief => {
+    const offset = footnotes.length
+    footnotes.push(...belief.sources)
+
+    // Split the explanation into text and groups of footnote markers like [1][2]
+    const parts = belief.explanation.split(/((?:\[\d+\])+)/).map((text, i) => {
+        if (i % 2 === 0){
+            return {text, footnotes: [] as number[]}
+        }
+        const footnotes = [...text.matchAll(/\d+/g)].map(m => offset + Number(m[0]))
+        return {text: '', footnotes}
+    })
+
+    // Footnote the quote with its source, if it has one
+    const quote_footnote = belief.quote.source ? offset + belief.quote.source : 0
+
+    return {...belief, parts, quote_footnote}
+})
+
 </script>
 
 
 <style lang="sss" scoped>
 
 .belief
-    margin-bottom: 24px
+    margin-bottom: 32px
 
 h2
     font-size: 1.1em
@@ -59,14 +96,35 @@ h2
 .primary + .belief:not(.primary)
     margin-top: 40px
 
-.detail
-    opacity: 0.85
+blockquote
+    margin: 12px 0
+    padding-left: 12px
+    border-left: 3px solid rgba(128, 128, 128, 0.4)
 
-.refs
+.quote
     font-style: italic
-    opacity: 0.8
 
-.sources
+.verse
+    font-weight: 500
+    cite
+        display: block
+        margin-top: 4px
+        font-size: 0.9em
+        font-style: normal
+        opacity: 0.8
+
+sup
+    font-size: 0.7em
+    a
+        text-decoration: none
+        padding: 0 1px
+
+.footnotes
+    margin-top: 48px
     font-size: 0.9em
+    li
+        margin-bottom: 4px
+    li:target
+        background-color: rgba(176, 48, 48, 0.12)
 
 </style>
