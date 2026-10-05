@@ -123,8 +123,10 @@ export const religions:Religion[] = [
             {
                 primary: true,
                 title: "We must save ourselves by our own effort",
-                explanation: "Buddhism teaches that each person must purify themselves, and that"
-                    + " no one else can do it for them.[1] The Buddha only shows the way.[2]",
+                explanation: "The Buddha taught that each person must purify themselves, and"
+                    + " that no one else can do it for them.[1] He only shows the way.[2] Some"
+                    + " later schools, such as Pure Land, rely on the help of a Buddha, but none"
+                    + " look to the grace of a Creator God.",
                 sources: [
                     sutta("Dhammapada 165", 'dhp157-166'),
                     sutta("Dhammapada 276", 'dhp273-289'),
@@ -141,8 +143,9 @@ export const religions:Religion[] = [
                 primary: true,
                 title: "Refuge is found in the Buddha and his teaching",
                 explanation: "Buddhists take refuge in the Buddha, his teaching and the community"
-                    + " of monks, and are told this is the supreme refuge that releases from all"
-                    + " suffering.[1] Jesus is at most seen as one wise teacher among many.",
+                    + " of monks, which is called the supreme refuge that releases from all"
+                    + " suffering.[1] Many Buddhists respect Jesus as a wise teacher, but not as"
+                    + " the only way to God.",
                 sources: [sutta("Dhammapada 190–192", 'dhp179-196')],
                 quote: {
                     text: "Such refuge is a sanctuary, it is the supreme refuge. By going to that"
@@ -156,7 +159,8 @@ export const religions:Religion[] = [
             {
                 title: "There is no lasting self or soul",
                 explanation: "The Buddha taught that nothing in a person, body or mind, is a"
-                    + " lasting self.[1]",
+                    + " permanent, unchanging self. A person is a changing process rather than a"
+                    + " soul.[1]",
                 sources: [sutta("Saṃyutta Nikāya 22.59, The Characteristic of Not-Self",
                     'sn22.59')],
                 quote: {text: "Mendicants, form is not-self.", source: 1},
@@ -166,8 +170,9 @@ export const religions:Religion[] = [
             },
             {
                 title: "We are reborn again and again",
-                explanation: "Buddhism teaches that beings wander through countless lives in a"
-                    + " cycle of rebirth with no known beginning.[1]",
+                explanation: "Buddhism teaches that beings pass through countless lives in a"
+                    + " cycle of rebirth with no known beginning.[1] It is not a soul moving to a"
+                    + " new body, but a stream of cause and effect that continues after death.",
                 sources: [sutta("Saṃyutta Nikāya 15.3, Tears", 'sn15.3')],
                 quote: {
                     text: "Mendicants, this transmigration has no known beginning.",
@@ -178,9 +183,9 @@ export const religions:Religion[] = [
                 verse: "Hebrews 9:27",
             },
             {
-                title: "Suffering is caused by desire",
+                title: "Suffering is caused by craving, not by sin",
                 explanation: "The second of the Four Noble Truths says the origin of suffering is"
-                    + " craving, and that suffering ends when craving ends.[1]",
+                    + " craving and clinging, and that suffering ends when craving ends.[1]",
                 sources: [sutta("Saṃyutta Nikāya 56.11, Rolling Forth the Wheel of Dhamma",
                     'sn56.11')],
                 quote: {
@@ -188,22 +193,26 @@ export const religions:Religion[] = [
                         + " and greed, taking pleasure there wherever it alights.",
                     source: 1,
                 },
-                response: "Suffering and death entered the world through sin. Not all desire is"
-                    + " wrong, and God will one day end suffering completely.",
+                response: "Suffering and death entered the world through sin against God. The"
+                    + " answer is not to end desire but to be reconciled to God, who will one"
+                    + " day end suffering completely.",
                 verse: "Romans 5:12",
             },
             {
-                title: "The goal is nirvana, the end of the self",
+                title: "The goal is nirvana, release from rebirth",
                 explanation: "The goal of Buddhism is nirvana (\"extinguishment\"), the ending of"
-                    + " greed, hate and delusion and release from rebirth.[1]",
-                sources: [sutta("Saṃyutta Nikāya 38.1, A Question About Extinguishment",
-                    'sn38.1')],
+                    + " greed, hate and delusion and release from rebirth.[1] Buddhists do not"
+                    + " call it simply ceasing to exist, but it is not life with God either.[2]",
+                sources: [
+                    sutta("Saṃyutta Nikāya 38.1, A Question About Extinguishment", 'sn38.1'),
+                    sutta("Majjhima Nikāya 72, With Vacchagotta on Fire", 'mn72'),
+                ],
                 quote: {
                     text: "The ending of greed, hate, and delusion is called extinguishment.",
                     source: 1,
                 },
-                response: "The goal is not to cease to exist but to have eternal life, knowing"
-                    + " God and living with him forever.",
+                response: "The goal is eternal life, knowing God personally and living with him"
+                    + " forever in a renewed creation.",
                 verse: "John 17:3",
             },
             {
@@ -220,9 +229,10 @@ export const religions:Religion[] = [
                 verse: "Romans 3:23",
             },
             {
-                title: "Truth is found within",
-                explanation: "The Buddha told people not to rely on scripture or authority, but"
-                    + " to judge for themselves what is good.[1]",
+                title: "Truth is confirmed by personal experience",
+                explanation: "The Buddha told people not to accept teachings just because of"
+                    + " scripture or authority, but to test them for themselves.[1] Insight is"
+                    + " gained through meditation and practice, not revealed by God.",
                 sources: [sutta("Aṅguttara Nikāya 3.65, With the Kālāmas", 'an3.65')],
                 quote: {
                     text: "Don’t go by oral transmission, don’t go by lineage, don’t go by"
@@ -231,7 +241,7 @@ export const religions:Religion[] = [
                     source: 1,
                 },
                 response: "The human heart is deceitful. Truth is revealed by God in his Word,"
-                    + " not discovered by looking within.",
+                    + " and our experience is to be tested by it, not the other way around.",
                 verse: "Jeremiah 17:9",
             },
         ],
@@ -240,33 +250,50 @@ export const religions:Religion[] = [
         slug: 'catholic',
         name: "Roman Catholicism",
         summary: "Most Catholics believe in the Trinity, that Jesus is God, and that he died and"
-            + " rose again. The difference is how a person is forgiven and made right with God."
-            + " Each point below comes from official teaching still in force today, mostly the"
-            + " Catechism and the Council of Trent, so you can read it yourself.",
+            + " rose again. Since 1999 Rome has even agreed with Lutherans that we are saved by"
+            + " grace alone through faith in Christ. Real differences remain, though, in what"
+            + " being made right with God means and how it is received and kept. Each point"
+            + " below comes from official teaching still in force today, mostly the Catechism.",
         beliefs: [
             {
                 primary: true,
-                title: "We are not saved by faith alone",
-                explanation: "The Council of Trent condemned anyone who teaches that we are made"
-                    + " right with God by faith alone, or by Christ's righteousness being"
-                    + " credited to us.[1] Rome teaches that God pours grace into us so we"
-                    + " actually become good, and we must cooperate with it.",
-                sources: [trent("Session VI, Canons 9 & 11", 'sixth')],
+                title: "God makes us right by changing us, not by crediting Christ's righteousness"
+                    + " to us",
+                explanation: "Rome now affirms with Lutherans that we are accepted by God \"by"
+                    + " grace alone, in faith in Christ’s saving work and not because of any"
+                    + " merit on our part\".[1] But it still teaches that being made right with"
+                    + " God is not just forgiveness but an inner renewal, first received at"
+                    + " baptism,[2] which can be lost through serious sin and restored through"
+                    + " confession.[3] The Council of Trent's condemnation of justification by"
+                    + " faith alone has never been withdrawn.[4]",
+                sources: [
+                    {
+                        label: "Joint Declaration on the Doctrine of Justification (1999), 15",
+                        url: 'https://lutheranworld.org/sites/default/files/2022-02/'
+                            + 'joint_declaration_2019_en.pdf',
+                    },
+                    ccc("1989–1992", '__P6Y'),
+                    ccc("1446", '__P4C'),
+                    trent("Session VI, Canons 9 & 11", 'sixth'),
+                ],
                 quote: {
-                    text: "If any one saith, that by faith alone the impious is justified … let"
-                        + " him be anathema.",
-                    source: 1,
+                    text: "Justification is conferred in Baptism, the sacrament of faith. It"
+                        + " conforms us to the righteousness of God, who makes us inwardly just by"
+                        + " the power of his mercy.",
+                    source: 2,
                 },
-                response: "We are made right with God by trusting Christ alone. His perfect"
-                    + " righteousness is credited to us as a free gift, not earned by us.",
-                verse: "Romans 3:28",
+                response: "God declares the ungodly righteous the moment they trust Christ,"
+                    + " because Christ's perfect righteousness is credited to them. A changed"
+                    + " life follows as the fruit of being made right with God, not as its"
+                    + " basis, and it rests on Christ's finished work, not on our condition.",
+                verse: "Romans 4:5",
             },
             {
                 primary: true,
                 title: "Good works can merit eternal life",
-                explanation: "Rome teaches that no one can earn the first grace, but after that"
-                    + " we can merit what is needed for eternal life.[1][2] This grace can be"
-                    + " lost through mortal sin and restored through confession.",
+                explanation: "Rome stresses that all merit is first God's gift and that no one"
+                    + " can earn the first grace.[1] But it teaches that, moved by grace, our"
+                    + " good works truly merit what is needed for eternal life.[2]",
                 sources: [ccc("2006–2011", '__P70'), ccc("2027", '__P72')],
                 quote: {
                     text: "Moved by the Holy Spirit, we can merit for ourselves and for others"
@@ -298,9 +325,9 @@ export const religions:Religion[] = [
             {
                 primary: true,
                 title: "The Mass is a sacrifice that takes away sins",
-                explanation: "Rome teaches that the cross and the Mass are one sacrifice. The same"
-                    + " Christ is offered at every Mass through the priest, for the sins of the"
-                    + " living and the dead.[1]",
+                explanation: "Rome does not teach that Christ dies again, but that each Mass"
+                    + " makes present the one sacrifice of the cross, offered through the priest"
+                    + " for the sins of the living and the dead.[1]",
                 sources: [ccc("1366–1367", '__P41')],
                 quote: {
                     text: "The sacrifice of Christ and the sacrifice of the Eucharist are one"
@@ -326,10 +353,11 @@ export const religions:Religion[] = [
                 verse: "Galatians 2:11",
             },
             {
-                title: "The communion bread is to be worshipped as Jesus",
+                title: "The bread and wine become Christ and are to be worshipped",
                 explanation: "Rome teaches that the bread and wine become Christ's actual body and"
-                    + " blood (transubstantiation),[1] so the bread is adored, both during Mass"
-                    + " and when displayed outside of it.[2]",
+                    + " blood, with only their appearance remaining (transubstantiation).[1] So"
+                    + " Catholics worship the consecrated host as Christ himself, both during Mass"
+                    + " and when it is displayed outside of it.[2]",
                 sources: [ccc("1376–1378", '__P41'), ccc("1418", '__P44')],
                 quote: {
                     text: "The Catholic Church has always offered and still offers to the"
@@ -343,8 +371,9 @@ export const religions:Religion[] = [
             },
             {
                 title: "Punishment for sin remains and can be reduced by indulgences",
-                explanation: "Rome teaches that even after forgiveness, \"temporal punishment\""
-                    + " remains, paid in this life or in purgatory. Indulgences reduce it by"
+                explanation: "Indulgences are no longer sold, but Rome still teaches that even"
+                    + " after forgiveness, \"temporal punishment\" remains, to be paid in this"
+                    + " life or in purgatory. Indulgences, still granted today, reduce it by"
                     + " drawing on a treasury of the merits of Christ and the saints.[1]",
                 sources: [ccc("1471–1479", '__P4G')],
                 quote: {
@@ -358,9 +387,10 @@ export const religions:Religion[] = [
             },
             {
                 title: "Mary was sinless and was taken bodily into heaven",
-                explanation: "Catholics must believe Mary was conceived without sin, as declared"
-                    + " by Pope Pius IX in 1854,[1][2] and that she was taken body and soul into"
-                    + " heaven, as declared by Pope Pius XII in 1950.[3][4]",
+                explanation: "Catholics must believe Mary was kept from all sin from her"
+                    + " conception, saved by Christ in advance, as declared by Pope Pius IX in"
+                    + " 1854,[1][2] and that she was taken body and soul into heaven, as declared"
+                    + " by Pope Pius XII in 1950.[3][4]",
                 sources: [
                     ccc("491", '__P1K'),
                     {
@@ -380,23 +410,37 @@ export const religions:Religion[] = [
                         + " and soul into heavenly glory.",
                     source: 3,
                 },
-                response: "All have sinned except Christ, and Mary herself called God her"
-                    + " Saviour. We are only bound to believe what Scripture teaches.",
+                response: "Scripture says nothing of Mary being sinless or taken bodily into"
+                    + " heaven. It teaches that all have sinned except Christ, and no one may be"
+                    + " required to believe as essential what God has not revealed.",
                 verse: "Luke 1:47",
             },
             {
-                title: "Mary is a mediator, and we should pray to the saints",
-                explanation: "Rome gives Mary the title \"Mediatrix\" and teaches that she"
-                    + " continues to bring us salvation,[1] and that we should ask the saints in"
-                    + " heaven to pray for us.[2][3]",
-                sources: [ccc("969", '__P2C'), ccc("956", '__P2B'), ccc("2677", '__P9F')],
+                title: "We should pray to Mary and the saints for their help",
+                explanation: "Rome teaches that Christ is the only Redeemer, and in 2025 it"
+                    + " rejected calling Mary \"Co-redemptrix\".[1] But it still teaches that"
+                    + " Mary shares in Christ's mediation by her intercession,[2] and encourages"
+                    + " Catholics to pray to her and to the saints in heaven for help.[3][4]",
+                sources: [
+                    {
+                        label: "Dicastery for the Doctrine of the Faith, Mater Populi Fidelis"
+                            + " (2025)",
+                        url: 'https://www.vatican.va/roman_curia/congregations/cfaith/'
+                            + 'documents/rc_ddf_doc_20251104_mater-populi-fidelis_en.html',
+                    },
+                    ccc("969–970", '__P2C'),
+                    ccc("956", '__P2B'),
+                    ccc("2677", '__P9F'),
+                ],
                 quote: {
-                    text: "Therefore the Blessed Virgin is invoked in the Church under the titles"
-                        + " of Advocate, Helper, Benefactress, and Mediatrix.",
+                    text: "Through her intercession, Mary can implore God to grant us those"
+                        + " internal impulses of the Holy Spirit that are called “actual"
+                        + " graces.”",
                     source: 1,
                 },
-                response: "There is one mediator between God and people, Jesus Christ. We can"
-                    + " come boldly to God through him, and prayer belongs to God alone.",
+                response: "There is one mediator between God and people, Jesus Christ. Scripture"
+                    + " never directs prayer to anyone in heaven but God, and through Christ we"
+                    + " can come to God directly.",
                 verse: "1 Timothy 2:5",
             },
             {
@@ -416,10 +460,11 @@ export const religions:Religion[] = [
             },
             {
                 title: "The true Church is the one under the Pope",
-                explanation: "Rome teaches that the one Church of Christ is found in the Catholic"
-                    + " Church, governed by the Pope, and that the fullness of the means of"
-                    + " salvation is found only there.[1]",
-                sources: [ccc("816, 846", '__P29')],
+                explanation: "Rome warmly calls Protestants fellow Christians and sees elements"
+                    + " of truth and grace in their churches.[1] But it teaches that the one"
+                    + " Church of Christ \"subsists in\" the Catholic Church under the Pope, and"
+                    + " that the fullness of the means of salvation is found only there.[1]",
+                sources: [ccc("816–819, 846", '__P29')],
                 quote: {
                     text: "This Church, constituted and organized as a society in the present"
                         + " world, subsists in the Catholic Church, which is governed by the"
@@ -520,7 +565,8 @@ export const religions:Religion[] = [
                 title: "The Governing Body is Christ's channel of truth",
                 explanation: "Jehovah's Witnesses teach that Jesus feeds his followers through"
                     + " \"the faithful and discreet slave\", which they identify as their"
-                    + " Governing Body.[1][2]",
+                    + " Governing Body.[1][2] They admit it is not infallible, but members are"
+                    + " expected to follow its direction.[3]",
                 sources: [
                     {
                         label: "The Watchtower, July 15, 2013, “Who Really Is the Faithful and"
@@ -530,6 +576,12 @@ export const religions:Religion[] = [
                     },
                     jw("What Is the Governing Body of Jehovah’s Witnesses?",
                         'jehovahs-witnesses/faq/governing-body-jw-helpers'),
+                    {
+                        label: "The Watchtower, February 2017, “Who Is Leading God’s People"
+                            + " Today?”",
+                        url: 'https://www.jw.org/en/library/magazines/'
+                            + 'watchtower-study-february-2017/who-is-leading-gods-people-today/',
+                    },
                 ],
                 quote: {
                     text: "That faithful slave is the channel through which Jesus is feeding his"
@@ -605,7 +657,8 @@ export const religions:Religion[] = [
             {
                 title: "The dead cease to exist and there is no hell",
                 explanation: "Jehovah's Witnesses teach that the soul dies,[1] and that hell is"
-                    + " simply the grave, where the dead no longer exist.[2]",
+                    + " simply the grave, where the dead no longer exist until God resurrects"
+                    + " them. The wicked are not punished forever but destroyed.[2]",
                 sources: [
                     jw("What Is a Soul?", 'bible-teachings/questions/what-is-a-soul'),
                     jw("Is Hell Real?", 'bible-teachings/questions/what-is-hell'),
@@ -621,14 +674,20 @@ export const religions:Religion[] = [
             },
             {
                 title: "Blood transfusions are forbidden by God",
-                explanation: "Jehovah's Witnesses refuse blood transfusions, even to save a life,"
-                    + " because they believe the Bible's command to abstain from blood applies"
-                    + " to them.[1]",
-                sources: [jw("Why Don’t Jehovah’s Witnesses Accept Blood Transfusions?",
-                    'jehovahs-witnesses/faq/jehovahs-witnesses-why-no-blood-transfusions')],
+                explanation: "Jehovah's Witnesses seek good medical care but refuse transfusions"
+                    + " of whole blood or its main components, even to save a life, because"
+                    + " they believe the Bible's command to abstain from blood applies to"
+                    + " them.[1][2]",
+                sources: [
+                    jw("What Does the Bible Say About Blood Transfusions?",
+                        'bible-teachings/questions/bible-about-blood-transfusion'),
+                    jw("Why Don’t Jehovah’s Witnesses Accept Blood Transfusions?",
+                        'jehovahs-witnesses/faq/jehovahs-witnesses-why-no-blood-transfusions'),
+                ],
                 quote: {
-                    text: "Both the Old and New Testaments clearly command us to abstain from"
-                        + " blood.",
+                    text: "The Bible commands that we not ingest blood. So we should not accept"
+                        + " whole blood or its primary components in any form, whether offered as"
+                        + " food or as a transfusion.",
                     source: 1,
                 },
                 response: "The command concerns eating blood, not receiving medical care. God"
