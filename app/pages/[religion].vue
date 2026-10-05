@@ -21,8 +21,8 @@ ol
             strong But Scripture says:
             |  {{ point.response }}
         blockquote.verse
-            | {{ point.verse.text }}
-            cite {{ point.verse.ref }} (BSB)
+            | {{ verses?.[point.verse] }}
+            cite {{ point.verse }} (BSB)
 
 section.footnotes(v-if='footnotes.length')
     h2 Sources
@@ -36,6 +36,7 @@ section.footnotes(v-if='footnotes.length')
 <script lang="ts" setup>
 
 import {get_religion} from '~/data/religions'
+import {fetch_verses} from '~/bible'
 import type {Source} from '~/data/religions'
 
 // Resolve the religion from the route, or show a 404 if unknown
@@ -47,6 +48,10 @@ if (!found){
 const religion = found
 
 useHead({title: religion.name})
+
+// Fetch the text of each point's verse (done once at build time when prerendering)
+const {data: verses} = await useAsyncData(`verses-${religion.slug}`,
+    () => fetch_verses(religion.beliefs.map(belief => belief.verse)))
 
 // Number every point's sources consecutively so they can be listed at the end of the page
 const footnotes:Source[] = []
