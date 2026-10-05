@@ -10,6 +10,7 @@ export interface Source {
 
 // A single false belief and the biblical response to it
 export interface FalseBelief {
+    primary?:boolean  // Shown more prominently as one of the most important differences
     belief:string
     detail?:string  // What the religion teaches, in plain words or its own
     response:string
@@ -59,10 +60,32 @@ export const religions:Religion[] = [
             + " and meditation that leads to enlightenment and release from rebirth.",
         beliefs: [
             {
+                primary: true,
                 belief: "There is no Creator God",
                 response: "God created everything that exists, and his power and nature are"
                     + " clearly seen in what he has made.",
                 refs: ['Genesis 1:1', 'Psalm 19:1', 'Romans 1:20', 'Revelation 4:11'],
+            },
+            {
+                primary: true,
+                belief: "Karma decides what we deserve",
+                response: "Everyone has sinned and deserves judgement, but God offers mercy and"
+                    + " forgiveness freely through Christ instead of what we deserve.",
+                refs: ['Romans 3:23-24', 'Psalm 103:10-12', 'Romans 6:23', 'Ephesians 1:7'],
+            },
+            {
+                primary: true,
+                belief: "We must save ourselves by our own effort",
+                response: "No one can save themselves by good works or discipline. Salvation is"
+                    + " a gift of God's grace received by faith in Christ.",
+                refs: ['Ephesians 2:8-9', 'Titus 3:5', 'Galatians 2:16', 'Isaiah 64:6'],
+            },
+            {
+                primary: true,
+                belief: "Jesus was one enlightened teacher among many",
+                response: "Jesus is God in the flesh and the only way to God. Salvation is found"
+                    + " in no one else.",
+                refs: ['John 14:6', 'Acts 4:12', 'Colossians 2:9', 'John 1:14'],
             },
             {
                 belief: "There is no lasting self or soul",
@@ -77,22 +100,10 @@ export const religions:Religion[] = [
                 refs: ['Hebrews 9:27', 'Luke 16:22-23', 'Luke 23:43', '2 Corinthians 5:8'],
             },
             {
-                belief: "Karma decides what we deserve",
-                response: "Everyone has sinned and deserves judgement, but God offers mercy and"
-                    + " forgiveness freely through Christ instead of what we deserve.",
-                refs: ['Romans 3:23-24', 'Psalm 103:10-12', 'Romans 6:23', 'Ephesians 1:7'],
-            },
-            {
                 belief: "Suffering is caused by desire",
                 response: "Suffering entered the world through sin. Not all desire is wrong;"
                     + " God gives good desires and will one day end suffering completely.",
                 refs: ['Genesis 3:17-19', 'Romans 5:12', 'Psalm 37:4', 'Revelation 21:4'],
-            },
-            {
-                belief: "We must save ourselves by our own effort",
-                response: "No one can save themselves by good works or discipline. Salvation is"
-                    + " a gift of God's grace received by faith in Christ.",
-                refs: ['Ephesians 2:8-9', 'Titus 3:5', 'Galatians 2:16', 'Isaiah 64:6'],
             },
             {
                 belief: "The goal is nirvana, the end of the self",
@@ -100,12 +111,6 @@ export const religions:Religion[] = [
                     + " God and living with him forever in a renewed creation.",
                 refs: ['John 17:3', 'Revelation 21:3-4', '1 Corinthians 15:42-44',
                     'John 10:10'],
-            },
-            {
-                belief: "Jesus was one enlightened teacher among many",
-                response: "Jesus is God in the flesh and the only way to God. Salvation is found"
-                    + " in no one else.",
-                refs: ['John 14:6', 'Acts 4:12', 'Colossians 2:9', 'John 1:14'],
             },
             {
                 belief: "The real problem is ignorance, not sin",
@@ -131,6 +136,7 @@ export const religions:Religion[] = [
             + " it yourself.",
         beliefs: [
             {
+                primary: true,
                 belief: "We are not saved by faith alone",
                 detail: "The Council of Trent declared anyone who teaches that we are made right"
                     + " with God by faith alone to be \"anathema\" (condemned). Rome teaches that"
@@ -142,6 +148,7 @@ export const religions:Religion[] = [
                 sources: [trent("Council of Trent, Session VI, Canons 9 & 11", 'sixth')],
             },
             {
+                primary: true,
                 belief: "Good works can merit eternal life",
                 detail: "The Catechism teaches that after the first grace, \"we can merit for"
                     + " ourselves and for others all the graces needed to attain eternal life\"."
@@ -156,6 +163,7 @@ export const religions:Religion[] = [
                 ],
             },
             {
+                primary: true,
                 belief: "Church Tradition is equal to the Bible",
                 detail: "The Catechism says the Church \"does not derive her certainty about all"
                     + " revealed truths from the holy Scriptures alone\", and that only the"
@@ -167,6 +175,17 @@ export const religions:Religion[] = [
                     ccc("Catechism 80–82", '__PL'),
                     ccc("Catechism 85–87", '__PM'),
                 ],
+            },
+            {
+                primary: true,
+                belief: "The Mass is a sacrifice that takes away sins",
+                detail: "The Catechism calls the cross and the Mass \"one single sacrifice\"."
+                    + " The same Christ is offered again at every Mass through the priest, for"
+                    + " the sins of the living and the dead.",
+                response: "Christ offered himself once for all, and his sacrifice is finished."
+                    + " It is never repeated, and no further offering for sin is needed.",
+                refs: ['Hebrews 7:27', 'Hebrews 9:25-28', 'Hebrews 10:10-18', 'John 19:30'],
+                sources: [ccc("Catechism 1366–1367", '__P41')],
             },
             {
                 belief: "The Pope can teach without error",
@@ -181,16 +200,6 @@ export const religions:Religion[] = [
                     ccc("Catechism 891", '__P2A'),
                     ccc("Catechism 2035", '__P74'),
                 ],
-            },
-            {
-                belief: "The Mass is a sacrifice that takes away sins",
-                detail: "The Catechism calls the cross and the Mass \"one single sacrifice\"."
-                    + " The same Christ is offered again at every Mass through the priest, for"
-                    + " the sins of the living and the dead.",
-                response: "Christ offered himself once for all, and his sacrifice is finished."
-                    + " It is never repeated, and no further offering for sin is needed.",
-                refs: ['Hebrews 7:27', 'Hebrews 9:25-28', 'Hebrews 10:10-18', 'John 19:30'],
-                sources: [ccc("Catechism 1366–1367", '__P41')],
             },
             {
                 belief: "The communion bread is to be worshipped as Jesus",
@@ -304,11 +313,35 @@ export const religions:Religion[] = [
             + " its organization.",
         beliefs: [
             {
+                primary: true,
                 belief: "Jesus is a created being, not God",
                 response: "Jesus is the eternal Word who was with God and was God. He was not"
                     + " created; all things were created through him.",
                 refs: ['John 1:1-3', 'John 8:58', 'Colossians 1:16-17', 'Hebrews 1:8',
                     'Titus 2:13'],
+            },
+            {
+                primary: true,
+                belief: "The Trinity is a pagan teaching",
+                response: "There is one God, who exists as Father, Son and Holy Spirit. All"
+                    + " three are named together as the one God we are baptised into.",
+                refs: ['Deuteronomy 6:4', 'Matthew 28:19', '2 Corinthians 13:14',
+                    'John 20:28'],
+            },
+            {
+                primary: true,
+                belief: "Salvation is earned by obedience to the organization",
+                response: "Salvation is a free gift received by faith in Christ alone, not"
+                    + " earned by works, door-to-door preaching or loyalty to any group.",
+                refs: ['Ephesians 2:8-9', 'Titus 3:5', 'Romans 4:5', 'John 6:28-29'],
+            },
+            {
+                primary: true,
+                belief: "The Watchtower is God's only channel of truth",
+                response: "Christ is the only mediator between God and people. The Watchtower"
+                    + " has made failed predictions, such as for 1914 and 1975, and Scripture"
+                    + " says such a prophet is not from God.",
+                refs: ['1 Timothy 2:5', 'Deuteronomy 18:21-22', 'Acts 17:11', '1 John 2:27'],
             },
             {
                 belief: "Jesus is Michael the archangel",
@@ -323,36 +356,16 @@ export const religions:Religion[] = [
                 refs: ['Acts 5:3-4', 'Acts 13:2', 'John 16:13-14', 'Ephesians 4:30'],
             },
             {
-                belief: "The Trinity is a pagan teaching",
-                response: "There is one God, who exists as Father, Son and Holy Spirit. All"
-                    + " three are named together as the one God we are baptised into.",
-                refs: ['Deuteronomy 6:4', 'Matthew 28:19', '2 Corinthians 13:14',
-                    'John 20:28'],
-            },
-            {
                 belief: "Jesus rose as a spirit, not in his body",
                 response: "Jesus rose bodily from the grave. He showed his wounds, ate food and"
                     + " said a spirit does not have flesh and bones as he did.",
                 refs: ['Luke 24:39-43', 'John 2:19-21', 'John 20:27', '1 Corinthians 15:17'],
             },
             {
-                belief: "Salvation is earned by obedience to the organization",
-                response: "Salvation is a free gift received by faith in Christ alone, not"
-                    + " earned by works, door-to-door preaching or loyalty to any group.",
-                refs: ['Ephesians 2:8-9', 'Titus 3:5', 'Romans 4:5', 'John 6:28-29'],
-            },
-            {
                 belief: "Only 144,000 go to heaven and are born again",
                 response: "Every believer must be born again and is a child of God. Heaven is"
                     + " promised to a great multitude from every nation, not a select few.",
                 refs: ['John 3:3', 'Galatians 3:26', 'Revelation 7:9', 'Philippians 3:20'],
-            },
-            {
-                belief: "The Watchtower is God's only channel of truth",
-                response: "Christ is the only mediator between God and people. The Watchtower"
-                    + " has made failed predictions, such as for 1914 and 1975, and Scripture"
-                    + " says such a prophet is not from God.",
-                refs: ['1 Timothy 2:5', 'Deuteronomy 18:21-22', 'Acts 17:11', '1 John 2:27'],
             },
             {
                 belief: "The soul ceases to exist at death and there is no hell",
