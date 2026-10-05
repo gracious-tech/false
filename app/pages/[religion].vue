@@ -23,6 +23,16 @@ ol
         blockquote.verse
             | {{ verses?.[point.verse] }}
             cite {{ point.verse }} (BSB)
+        p.more(v-if='point.see_also?.length || point.further?.length')
+            template(v-if='point.see_also?.length')
+                strong See also:
+                |  {{ point.see_also.join(', ') }}.
+            template(v-if='point.further?.length')
+                | {{ point.see_also?.length ? ' ' : '' }}
+                strong Also see:
+                template(v-for='(page, i) in point.further' :key='page.url')
+                    | {{ i ? ', ' : ' ' }}
+                    a(:href='page.url' target='_blank' rel='noopener') {{ page.label }}
 
 section.footnotes(v-if='footnotes.length')
     h2 Sources
@@ -123,6 +133,9 @@ sup
     a
         text-decoration: none
         padding: 0 1px
+
+.more
+    font-size: 0.9em
 
 .footnotes
     margin-top: 48px

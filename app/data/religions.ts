@@ -25,6 +25,8 @@ export interface FalseBelief {
     quote:Quote
     response:string  // What Scripture says instead
     verse:string  // Reference of a verse to quote from the BSB, like "John 3:16"
+    see_also?:string[]  // More supporting passages
+    further?:Source[]  // Helpful pages for more depth
 }
 
 
@@ -76,6 +78,12 @@ function sutta(label:string, id:string):Source{
 }
 
 
+// Link to a helpful article on GotQuestions.org
+function gq(label:string, slug:string):Source{
+    return {label, url: `https://www.gotquestions.org/${slug}.html`}
+}
+
+
 // All religions, in the order they are listed on the home page
 export const religions:Religion[] = [
     {
@@ -103,6 +111,10 @@ export const religions:Religion[] = [
                 response: "God created everything that exists, and his power and nature are"
                     + " clearly seen in what he has made. We are accountable to him.",
                 verse: "Genesis 1:1",
+                see_also: ['Psalm 19:1', 'Romans 1:20', 'Revelation 4:11'],
+                further: [
+                    gq("What does it mean that God is the Creator?", 'creator-God'),
+                ],
             },
             {
                 primary: true,
@@ -119,6 +131,10 @@ export const religions:Religion[] = [
                 response: "Everyone has sinned and deserves judgement, but God offers mercy and"
                     + " forgiveness freely through Christ instead of what we deserve.",
                 verse: "Psalm 103:10",
+                see_also: ['Romans 3:23-24', 'Ephesians 1:7', 'Romans 6:23'],
+                further: [
+                    gq("What does the Bible say about karma?", 'karma'),
+                ],
             },
             {
                 primary: true,
@@ -138,6 +154,11 @@ export const religions:Religion[] = [
                 response: "No one can save themselves by good works or discipline. Salvation is"
                     + " a gift of God's grace received by faith in Christ.",
                 verse: "Ephesians 2:8-9",
+                see_also: ['Titus 3:5', 'Galatians 2:16', 'Isaiah 64:6'],
+                further: [
+                    gq("Why is salvation by works the predominantly held viewpoint?",
+                        'salvation-by-works'),
+                ],
             },
             {
                 primary: true,
@@ -155,6 +176,10 @@ export const religions:Religion[] = [
                 response: "Jesus is God in the flesh and the only way to God. Salvation is found"
                     + " in no one else.",
                 verse: "John 14:6",
+                see_also: ['Acts 4:12', 'Colossians 2:9', 'John 1:14'],
+                further: [
+                    gq("Is Jesus the only way to heaven?", 'Jesus-only-way'),
+                ],
             },
             {
                 title: "There is no lasting self or soul",
@@ -167,6 +192,11 @@ export const religions:Religion[] = [
                 response: "Each person is made in God's image with a soul that continues after"
                     + " death and is known and loved by God individually.",
                 verse: "Genesis 1:27",
+                see_also: ['Psalm 139:13-16', 'Matthew 10:28', 'Luke 12:7'],
+                further: [
+                    gq("What is the difference between the soul and spirit of humanity?",
+                        'soul-spirit'),
+                ],
             },
             {
                 title: "We are reborn again and again",
@@ -181,6 +211,10 @@ export const religions:Religion[] = [
                 response: "Each person lives once, then faces judgement. There is no cycle of"
                     + " rebirth.",
                 verse: "Hebrews 9:27",
+                see_also: ['Luke 16:22-23', 'Luke 23:43', '2 Corinthians 5:8'],
+                further: [
+                    gq("What does the Bible say about reincarnation?", 'reincarnation'),
+                ],
             },
             {
                 title: "Suffering is caused by craving, not by sin",
@@ -197,6 +231,11 @@ export const religions:Religion[] = [
                     + " answer is not to end desire but to be reconciled to God, who will one"
                     + " day end suffering completely.",
                 verse: "Romans 5:12",
+                see_also: ['Genesis 3:17-19', 'Psalm 37:4', 'Revelation 21:4'],
+                further: [
+                    gq("What are the Four Noble Truths?", 'Four-Noble-Truths'),
+                    gq("What is original sin?", 'original-sin'),
+                ],
             },
             {
                 title: "The goal is nirvana, release from rebirth",
@@ -214,6 +253,10 @@ export const religions:Religion[] = [
                 response: "The goal is eternal life, knowing God personally and living with him"
                     + " forever in a renewed creation.",
                 verse: "John 17:3",
+                see_also: ['Revelation 21:3-4', '1 Corinthians 15:42-44', 'John 10:10'],
+                further: [
+                    gq("What is the concept of Nirvana in Buddhism?", 'Nirvana-in-Buddhism'),
+                ],
             },
             {
                 title: "The real problem is ignorance, not sin",
@@ -227,6 +270,10 @@ export const religions:Religion[] = [
                 response: "Our real problem is sin against a holy God, which needs forgiveness,"
                     + " not merely enlightenment.",
                 verse: "Romans 3:23",
+                see_also: ['Psalm 51:4', 'Isaiah 59:2', '1 John 1:8-9'],
+                further: [
+                    gq("What is sin?", 'what-is-sin'),
+                ],
             },
             {
                 title: "Truth is confirmed by personal experience",
@@ -243,6 +290,11 @@ export const religions:Religion[] = [
                 response: "The human heart is deceitful. Truth is revealed by God in his Word,"
                     + " and our experience is to be tested by it, not the other way around.",
                 verse: "Jeremiah 17:9",
+                see_also: ['Proverbs 3:5-6', '2 Timothy 3:16-17', 'Psalm 1:1-2'],
+                further: [
+                    gq("What is sola scriptura?", 'sola-scriptura'),
+                    gq("What is Christian meditation?", 'Christian-meditation'),
+                ],
             },
         ],
     },
@@ -287,6 +339,14 @@ export const religions:Religion[] = [
                     + " life follows as the fruit of being made right with God, not as its"
                     + " basis, and it rests on Christ's finished work, not on our condition.",
                 verse: "Romans 4:5",
+                see_also: [
+                    'Romans 3:28', 'Galatians 2:16', 'Philippians 3:9', '2 Corinthians 5:21',
+                ],
+                further: [
+                    gq("Why does Christ’s righteousness need to be imputed to us?",
+                        'imputed-righteousness'),
+                    gq("Why is sola fide important?", 'sola-fide'),
+                ],
             },
             {
                 primary: true,
@@ -303,6 +363,11 @@ export const religions:Religion[] = [
                 response: "Eternal life is a gift we receive, never wages we earn. Those who"
                     + " belong to Christ are kept by him.",
                 verse: "Romans 6:23",
+                see_also: ['Ephesians 2:8-9', 'Romans 11:6', 'John 10:28-29'],
+                further: [
+                    gq("Why is salvation by works the predominantly held viewpoint?",
+                        'salvation-by-works'),
+                ],
             },
             {
                 primary: true,
@@ -321,6 +386,12 @@ export const religions:Religion[] = [
                 response: "Scripture is God's own word and the final authority that judges all"
                     + " church teaching and tradition, not the other way around.",
                 verse: "Mark 7:13",
+                see_also: ['2 Timothy 3:16-17', 'Acts 17:11', 'Isaiah 8:20'],
+                further: [
+                    gq("What is sola scriptura?", 'sola-scriptura'),
+                    gq("Should Catholic tradition have equal or greater authority than the Bible?",
+                        'Catholic-tradition'),
+                ],
             },
             {
                 primary: true,
@@ -337,6 +408,10 @@ export const religions:Religion[] = [
                 response: "Christ offered himself once for all, and his sacrifice is finished."
                     + " It is never repeated, and no further offering for sin is needed.",
                 verse: "Hebrews 10:14",
+                see_also: ['Hebrews 7:27', 'Hebrews 9:25-28', 'John 19:30'],
+                further: [
+                    gq("What is the Catholic sacrament of Holy Eucharist?", 'Holy-Eucharist'),
+                ],
             },
             {
                 title: "The Pope can teach without error",
@@ -351,6 +426,10 @@ export const religions:Religion[] = [
                 response: "Christ alone is head of the church. Even the apostle Peter was"
                     + " publicly corrected when he went against the gospel.",
                 verse: "Galatians 2:11",
+                see_also: ['Ephesians 1:22-23', 'Colossians 1:18', 'Matthew 15:9'],
+                further: [
+                    gq("Is papal infallibility biblical?", 'papal-infallibility'),
+                ],
             },
             {
                 title: "The bread and wine become Christ and are to be worshipped",
@@ -368,6 +447,10 @@ export const religions:Religion[] = [
                 response: "Jesus gave the bread and cup as a remembrance of his death. Worship"
                     + " belongs to God alone, and the bread remains bread.",
                 verse: "Luke 22:19",
+                see_also: ['1 Corinthians 11:24-26', 'Exodus 20:4', 'Matthew 4:10'],
+                further: [
+                    gq("What is transubstantiation?", 'transubstantiation'),
+                ],
             },
             {
                 title: "Punishment for sin remains and can be reduced by indulgences",
@@ -384,6 +467,13 @@ export const religions:Religion[] = [
                 response: "Christ's death fully paid for the sins of those who trust him. There"
                     + " is no condemnation left and no debt for us or the saints to pay.",
                 verse: "Romans 8:1",
+                see_also: ['Hebrews 10:14', '1 John 1:7', 'Colossians 2:13-14'],
+                further: [
+                    gq("What are indulgences and plenary indulgences, and are the concepts"
+                        + " biblical?",
+                        'plenary-indulgences'),
+                    gq("What does the Bible say about purgatory?", 'purgatory'),
+                ],
             },
             {
                 title: "Mary was sinless and was taken bodily into heaven",
@@ -414,6 +504,11 @@ export const religions:Religion[] = [
                     + " heaven. It teaches that all have sinned except Christ, and no one may be"
                     + " required to believe as essential what God has not revealed.",
                 verse: "Luke 1:47",
+                see_also: ['Romans 3:23', 'Hebrews 4:15', '1 Corinthians 4:6'],
+                further: [
+                    gq("What is the Immaculate Conception?", 'immaculate-conception'),
+                    gq("What is the Assumption of Mary?", 'Assumption-Mary'),
+                ],
             },
             {
                 title: "We should pray to Mary and the saints for their help",
@@ -442,6 +537,12 @@ export const religions:Religion[] = [
                     + " never directs prayer to anyone in heaven but God, and through Christ we"
                     + " can come to God directly.",
                 verse: "1 Timothy 2:5",
+                see_also: ['Hebrews 4:14-16', 'John 14:13-14', 'Matthew 6:9'],
+                further: [
+                    gq("Is the Catholic doctrine of intercession of the saints biblical?",
+                        'intercession-of-the-saints'),
+                    gq("Is prayer to saints / Mary biblical?", 'prayer-saints-Mary'),
+                ],
             },
             {
                 title: "Statues, images and relics should be venerated",
@@ -457,6 +558,11 @@ export const religions:Religion[] = [
                 response: "God commands us not to bow down to images. Calling it honour rather"
                     + " than worship does not change what the command forbids.",
                 verse: "Exodus 20:5",
+                see_also: ['Exodus 20:4', 'Isaiah 42:8', 'Acts 10:25-26', '1 John 5:21'],
+                further: [
+                    gq("What are dulia, hyperdulia, and latria?", 'dulia-hyperdulia-latria'),
+                    gq("How should a Christian view relics?", 'Christian-relics'),
+                ],
             },
             {
                 title: "The true Church is the one under the Pope",
@@ -474,6 +580,10 @@ export const religions:Religion[] = [
                 response: "The true church is all who trust in Christ, wherever the gospel is"
                     + " rightly preached. Christ, not Peter, is the foundation.",
                 verse: "1 Corinthians 3:11",
+                see_also: ['Ephesians 2:19-22', 'Galatians 3:26-29', '1 Peter 2:4-6'],
+                further: [
+                    gq("Which church is the true church?", 'true-church'),
+                ],
             },
             {
                 title: "The Apocrypha is Scripture",
@@ -490,6 +600,11 @@ export const religions:Religion[] = [
                     + " and the apostles quoted. These extra books can be useful history but"
                     + " are not God's word.",
                 verse: "Romans 3:2",
+                see_also: ['Luke 24:44', 'Matthew 23:35'],
+                further: [
+                    gq("What are the Apocrypha / Deuterocanonical books?",
+                        'Apocrypha-deuterocanonical'),
+                ],
             },
         ],
     },
@@ -523,6 +638,14 @@ export const religions:Religion[] = [
                 response: "Jesus is the eternal Word who was with God and was God. He was not"
                     + " created; all things were created through him.",
                 verse: "John 1:3",
+                see_also: [
+                    'John 1:1', 'John 8:58', 'Colossians 1:16-17', 'Hebrews 1:8', 'Titus 2:13',
+                ],
+                further: [
+                    gq("Was Jesus created?", 'was-Jesus-created'),
+                    gq("What does it mean that Jesus is the “firstborn” over Creation?",
+                        'Jesus-first-born'),
+                ],
             },
             {
                 primary: true,
@@ -542,6 +665,10 @@ export const religions:Religion[] = [
                 response: "There is one God, who exists as Father, Son and Holy Spirit. All"
                     + " three share the one name we are baptised into.",
                 verse: "Matthew 28:19",
+                see_also: ['Deuteronomy 6:4', '2 Corinthians 13:14', 'John 20:28'],
+                further: [
+                    gq("What does the Bible teach about the Trinity?", 'Trinity-Bible'),
+                ],
             },
             {
                 primary: true,
@@ -559,6 +686,10 @@ export const religions:Religion[] = [
                 response: "Salvation is a free gift received by faith in Christ, and those who"
                     + " belong to him are kept safe by him, not by their own performance.",
                 verse: "John 10:28",
+                see_also: ['Ephesians 2:8-9', 'Romans 4:5', 'John 6:28-29'],
+                further: [
+                    gq("Eternal security - is it biblical?", 'eternal-security'),
+                ],
             },
             {
                 primary: true,
@@ -591,6 +722,11 @@ export const religions:Religion[] = [
                 response: "Christ is the only mediator, and every believer is to test all"
                     + " teaching against Scripture, not accept it because of who teaches it.",
                 verse: "Acts 17:11",
+                see_also: ['1 Timothy 2:5', '1 John 2:27', '1 Thessalonians 5:21'],
+                further: [
+                    gq("Who are the Jehovah’s Witnesses and what are their beliefs?",
+                        'Jehovahs-Witnesses'),
+                ],
             },
             {
                 title: "Jesus is Michael the archangel",
@@ -606,6 +742,10 @@ export const religions:Religion[] = [
                 response: "The Son is far greater than the angels. God commands all the angels"
                     + " to worship him, something never said of any angel.",
                 verse: "Hebrews 1:6",
+                see_also: ['Hebrews 1:4-5', 'Hebrews 1:13', 'Jude 9'],
+                further: [
+                    gq("Is Jesus Michael the archangel?", 'Jesus-Michael-archangel'),
+                ],
             },
             {
                 title: "The Holy Spirit is an impersonal force",
@@ -620,6 +760,10 @@ export const religions:Religion[] = [
                 response: "The Holy Spirit is a person who speaks, teaches and can be grieved,"
                     + " and lying to him is lying to God.",
                 verse: "Acts 5:3-4",
+                see_also: ['Acts 13:2', 'John 16:13-14', 'Ephesians 4:30'],
+                further: [
+                    gq("Is the Holy Spirit a person?", 'Holy-Spirit-person'),
+                ],
             },
             {
                 title: "Jesus rose as a spirit, not in his body",
@@ -635,6 +779,11 @@ export const religions:Religion[] = [
                 response: "Jesus rose bodily from the grave. He showed his wounds, ate food and"
                     + " said a spirit does not have flesh and bones as he did.",
                 verse: "Luke 24:39",
+                see_also: ['Luke 24:40-43', 'John 2:19-21', 'John 20:27'],
+                further: [
+                    gq("Why is the truth of the bodily resurrection of Jesus Christ so important?",
+                        'bodily-resurrection-Jesus'),
+                ],
             },
             {
                 title: "Only 144,000 go to heaven and are born again",
@@ -653,6 +802,13 @@ export const religions:Religion[] = [
                 response: "Every believer must be born again and is a child of God. Heaven is"
                     + " promised to a great multitude from every nation, not a select few.",
                 verse: "Revelation 7:9",
+                see_also: ['John 3:3', 'Galatians 3:26', 'Philippians 3:20'],
+                further: [
+                    gq("What do the Jehovah’s Witnesses believe about the 144,000 and a"
+                        + " heavenly/earthly hope?",
+                        'Jehovahs-Witnesses-144000'),
+                    gq("What does it mean to be a born again Christian?", 'born-again'),
+                ],
             },
             {
                 title: "The dead cease to exist and there is no hell",
@@ -671,6 +827,11 @@ export const religions:Religion[] = [
                 response: "The soul continues after death. Believers go to be with Christ and"
                     + " unbelievers face eternal punishment.",
                 verse: "Matthew 25:46",
+                see_also: ['Luke 16:22-24', '2 Corinthians 5:8', 'Philippians 1:23'],
+                further: [
+                    gq("What does the Bible say about soul sleep?", 'soul-sleep'),
+                    gq("Is hell real? Is hell eternal?", 'hell-real-eternal'),
+                ],
             },
             {
                 title: "Blood transfusions are forbidden by God",
@@ -693,6 +854,11 @@ export const religions:Religion[] = [
                 response: "The command concerns eating blood, not receiving medical care. God"
                     + " values human life, and saving a life is never against his law.",
                 verse: "Mark 3:4",
+                see_also: ['Leviticus 17:10-12', 'Acts 15:20', 'John 15:13'],
+                further: [
+                    gq("Why do Jehovah’s Witnesses refuse blood transfusions?",
+                        'blood-transfusions'),
+                ],
             },
         ],
     },
