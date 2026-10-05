@@ -280,7 +280,7 @@ const religion:Religion = {
             sources: [ccc("816–819, 846", '__P29')],
             quote: {
                 text: "This Church, constituted and organized as a society in the present"
-                    + " world, subsists in the Catholic Church, which is governed by the"
+                    + " world, subsists in … the Catholic Church, which is governed by the"
                     + " successor of Peter and by the bishops in communion with him.",
                 source: 1,
             },

@@ -82,3 +82,15 @@ export function quran(ref:string):Source{
 export function lds(label:string, path:string):Source{
     return {label, url: `https://www.churchofjesuschrist.org/study/${path}?lang=eng`}
 }
+
+
+// Link to a Jewish text on Sefaria, like "Mishneh_Torah,_Repentance.1.3"
+export function sefaria(label:string, ref:string):Source{
+    return {label, url: `https://www.sefaria.org/${ref}?lang=en`}
+}
+
+
+// Link to a page on oca.org, the official site of the Orthodox Church in America
+export function oca(label:string, path:string):Source{
+    return {label: `Orthodox Church in America, ${label}`, url: `https://www.oca.org/${path}`}
+}

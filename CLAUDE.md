@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-A static website listing the top 10 false beliefs of various religions, sects and cults, each contrasted with what Scripture teaches from a Protestant Evangelical perspective. It's a quick reference for the average person, so content should be short, plain and backed by Scripture references.
+A static website listing the main false beliefs (usually 3 to 12) of various religions, sects and cults, each contrasted with what Scripture teaches from a Protestant Evangelical perspective. It's a quick reference for the average person, so content should be short, plain and backed by Scripture references.
 
 ## Commands
 
