@@ -21,7 +21,7 @@ There are no tests or linter. Use `npm run build` and `npm run typecheck` to ver
 
 Nuxt 4 (Vite + Vue), using the `app/` source directory. It is a fully static site with no server code.
 
-- **Content is data-driven.** Everything about each religion (slug, name, summary, beliefs with `belief`/`response`/`refs`) lives in `app/data/religions.ts`. Add or edit content there, not in page files.
+- **Content is data-driven.** Everything about each religion (slug, name, summary, beliefs with `title`, `explanation` (with `[n]` footnote markers), `sources`, `quote`, `response` and a BSB `verse`) lives in `app/data/religions.ts`. Add or edit content there, not in page files.
 - **One shared page template.** `app/pages/[religion].vue` renders every religion page from its slug and throws a 404 for unknown slugs. Do not create a separate page file per religion.
 - **Prerendering reads the same data.** `nuxt.config.ts` imports `religions` and adds a route for each slug to `nitro.prerender.routes`, so every entry in the data file is generated even if nothing links to it. Because of this import, `religions.ts` must stay free of Nuxt auto-imports and runtime-only code.
 
